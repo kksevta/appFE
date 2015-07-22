@@ -85,13 +85,13 @@ var MapView = (function() {
                 friendLayerCollection[i].currentLocation.longitude = result[j].longitude;
                 friendLayerCollection[i].username = result[j].username;
             }
+            
             for (var i = 0; i < friendLayerCollection.length; i++) {
                 if (!friendLayerCollection[i].marker) {
                     friendLayerCollection[i].marker = MapGlobal.drawMarker(map, friendLayerCollection[i].currentLocation);
                 }
             }
             for (var i = 0; i < friendLayerCollection.length; i++) {
-                //    MapGlobal.moveMarker(friendLayerCollection[i].marker, friendLayerCollection[i].previousLocation, friendLayerCollection[i].currentLocation);
                 new MoveMarker(friendLayerCollection[i].marker, friendLayerCollection[i].previousLocation, friendLayerCollection[i].currentLocation);
             }
         });

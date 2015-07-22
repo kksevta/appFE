@@ -5,21 +5,61 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
         <!-- <link href="assets/ratchet/css/ratchet.css" rel="stylesheet">-->
         <link href="assets/css/styles.css" rel="stylesheet">
+        <link type="text/css" rel="stylesheet" href="lib/materialize/css/materialize.min.css"  media="screen,projection"/>
     </head>
     <body>
-   <!-- <p id="deviceProperties">Loading device properties...</p>-->
-        <div id="map-canvas"></div>
-        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
+        <div id="_container"></div>
+  <!--      <div id="map-canvas"></div>-->
+
+        <script type="text/x-handlebars-template" id="loginTmpl">
+<div class="container">
+    <div class="row">
+        <div class="col s12 m12 l12">
+            <div class="widget-item z-depth-1">
+                <b>{{_labelauthheader}}</b>
+                <div>
+                    <div class="row">
+                        <form class="col s12" onsubmit="return false">
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <i class="mdi-action-account-circle prefix"></i>
+                                    <input id="username" type="text" name="{{_labelauthusername}}" class="validate">
+                                    <label for="username">{{_labelauthusername}}</label>
+                                </div>
+                                <div class="input-field col s12">
+                                    <i class="mdi-action-https prefix"></i>
+                                    <input id="password" type="password" name="{{_labelauthpassword}}" class="validate">
+                                    <label for="password">{{_labelauthpassword}}</label>
+                                </div>
+                                <button class="btn waves-effect waves-light" data-function="login" type="submit">{{_labelauthsubmit}}<i class="mdi-action-lock-open right"></i></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</script>
         <script src="cordova.js"></script>
         <script src="lib/jquery.js"></script>
+        <script src="lib/materialize/js/materialize.min.js"></script>
+        <script src="lib/handlebars.js"></script>
         <script src="js/constants/app-error-codes.js"></script>
         <script src="js/constants/app-var.js"></script>
+        <script src="js/templates/login_view_template.js"></script>
         <script src="js/models/mapmodel.js"></script>
         <script src="js/utils/map-global.js"></script>
         <script src="js/utils/request.js"></script>
-        <script src="js/views/mapview.js"></script>
+        <script src="js/views/auth_view.js"></script>
+        <script src="js/views/map_view.js"></script>
         <script src="js/utils/errorhandler.js"></script>
         <script src="js/utils/friendslayer.js"></script>
+        <script src="js/utils/MoveMarker.js"></script>
         <script src="js/app.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
+
+
+
     </body>
 </html>

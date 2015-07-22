@@ -27,5 +27,17 @@ var _ENDPOINTS = {
         NAME: 'updateinfo'
     }
 };
-var pintymapicon="http://i60.tinypic.com/2h4kz90.jpg";
-var kittymapicon='http://i61.tinypic.com/dgo2fr.jpg';
+
+var AppVar = {
+    'AUTHVIEW': {
+        'HEADER_LABEL': 'Madagascar Login',
+        'USERNAME_LABEL': 'Username',
+        'PASSWORD_LABEL': 'Password',  
+        'SUBMIT_LABEL':'LogIn'       
+    },
+    'MAPVIEW':{
+
+    }
+}
+var pintymapicon = "http://i60.tinypic.com/2h4kz90.jpg";
+var kittymapicon = 'http://i61.tinypic.com/dgo2fr.jpg';

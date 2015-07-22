@@ -1,6 +1,5 @@
 var Request = (function() {
-    var requestStore=[];
-
+    var requestStore = [];
     var serialize = function postserialize(obj, prefix) {
         var str = [];
         for (var p in obj) {
@@ -13,9 +12,7 @@ var Request = (function() {
         return str.join("&");
     };
     var sendRequest = function(type, url, params) {
-
-        
-        return new Promise(function(resolve, reject) {        
+        return new Promise(function(resolve, reject) {
             var xhr = new XMLHttpRequest();
             xhr.onreadystatechange = function(args) {
                 if (this.readyState == 4) {
@@ -29,7 +26,6 @@ var Request = (function() {
             xhr.onerror = function(e) {
                 reject(this.status);
             };
-            //xhr.withCredentials = true;
             if (type === 'GET') {
                 xhr.open(type, url);
                 xhr.send(true);
@@ -37,7 +33,6 @@ var Request = (function() {
                 xhr.open(type, url, true);
                 xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
                 xhr.send(serialize(params));
-               // xhr.send(params);
             }
         });
     };
