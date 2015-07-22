@@ -1,0 +1,21 @@
+
+// to get device properties
+
+        var element = document.getElementById('deviceProperties');
+
+        element.innerHTML = 'Device Name: '     + device.name     + '<br />' + 
+                            'Device Cordova: '  + device.cordova  + '<br />' + 
+                            'Device Platform: ' + device.platform + '<br />' + 
+                            'Device UUID: '     + device.uuid     + '<br />' + 
+                            'Device Version: '  + device.version  + '<br />';
+
+
+                            // up to herea
+
+                                   google.maps.event.addListener(map, 'click', function(me) {
+            UserLayer.previousLocation.latitude = UserLayer.currentLocation.latitude;
+            UserLayer.previousLocation.longitude = UserLayer.currentLocation.longitude;
+            UserLayer.currentLocation.latitude = me.latLng.lat();
+            UserLayer.currentLocation.longitude = me.latLng.lng();
+            MapGlobal.moveMarker(UserLayer.marker, UserLayer.previousLocation, UserLayer.currentLocation);
+        });
