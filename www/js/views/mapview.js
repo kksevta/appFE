@@ -23,15 +23,15 @@ var MapView = (function() {
     };
     var friendLayerCollection = [];
     var render = function render() {
-        /*    MapGlobal.getPresentLocation().then(function(position) {
-                UserLayer.currentLocation.latitude = position.coords.latitude;
-                UserLayer.currentLocation.longitude = position.coords.longitude;
-                initializeMap();
-            }).catch(function(Error) {
-                initializeMap();
-                ErrorHandler.showError(Error);
-            });*/
-          initializeMap();
+        /*MapGlobal.getPresentLocation().then(function(position) {
+             UserLayer.currentLocation.latitude = position.coords.latitude;
+             UserLayer.currentLocation.longitude = position.coords.longitude;
+             initializeMap();
+         }).catch(function(Error) {
+             initializeMap();
+             ErrorHandler.showError(Error);
+         });*/
+        initializeMap();
     };
     var selfLocationChangeSuccess = function selfLocationChangeSuccess(position) {
         UserLayer.previousLocation.latitude = UserLayer.currentLocation.latitude;
@@ -56,7 +56,7 @@ var MapView = (function() {
             center: center
         }
         map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
-        UserLayer.watchID = navigator.geolocation.watchPosition(selfLocationChangeSuccess, selfLocationChangeError, geo_options);
+        // UserLayer.watchID = navigator.geolocation.watchPosition(selfLocationChangeSuccess, selfLocationChangeError, geo_options);
         //UserLayer.marker = MapGlobal.drawMarker(map, UserLayer.currentLocation);
         //setInterval(fetch,8000);
         setTimeout(fetch, 5000);
@@ -91,10 +91,8 @@ var MapView = (function() {
                 }
             }
             for (var i = 0; i < friendLayerCollection.length; i++) {
-                MapGlobal.moveMarker(friendLayerCollection[i].marker, friendLayerCollection[i].previousLocation, friendLayerCollection[i].currentLocation).then(function(){
-
-                    var s=0;
-                });
+                //    MapGlobal.moveMarker(friendLayerCollection[i].marker, friendLayerCollection[i].previousLocation, friendLayerCollection[i].currentLocation);
+                new MoveMarker(friendLayerCollection[i].marker, friendLayerCollection[i].previousLocation, friendLayerCollection[i].currentLocation);
             }
         });
     };

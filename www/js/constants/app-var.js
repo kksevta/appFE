@@ -1,5 +1,5 @@
-//var API_URL = 'http://nodejstest-kuldeepkumar.rhcloud.com';
-var API_URL = 'http://localhost:3000';
+var API_URL = 'http://nodejstest-kuldeepkumar.rhcloud.com';
+//var API_URL = 'http://localhost:3000';
 
 var MAPCENTRE = {
     latitude: 18,
