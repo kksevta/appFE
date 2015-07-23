@@ -7,6 +7,6 @@ MapModel.prototype = {
         return Request.sendRequest(_ENDPOINTS.UPDATE_CURRENT_INFO.TYPE, API_URL + _ENDPOINTS.UPDATE_CURRENT_INFO.ENDPOINT,data);
     },
     getLocationData: function(data) {
-        return Request.sendRequest(_ENDPOINTS.UPDATE_CURRENT_INFO.TYPE, API_URL + _ENDPOINTS.UPDATE_CURRENT_INFO.ENDPOINT,data);
+        return Request.sendRequest(_ENDPOINTS.GET_LOCATION_DATA.TYPE, API_URL + _ENDPOINTS.GET_LOCATION_DATA.ENDPOINT,data);
     }
 }

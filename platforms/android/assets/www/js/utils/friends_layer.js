@@ -8,7 +8,9 @@ function FriendsLayer() {
         longitude: MAPCENTRE.longitude
     };
     this.marker = null;
+    this.infowindow=null;
     this.icon = pintymapicon;
     this.username = '';
+    this.lastupdated={};
 }
 FriendsLayer.prototype = {}
