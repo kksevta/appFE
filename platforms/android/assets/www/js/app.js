@@ -13,19 +13,22 @@ var app = {
     onDeviceReady: function() {
         // app.receivedEvent('deviceready');
         var username = window.localStorage.getItem('username');
-       // if (!username) {
-            var authdata = {};
-            authdata._labelauthheader = AppVar.AUTHVIEW.HEADER_LABEL;
-            authdata._labelauthusername = AppVar.AUTHVIEW.USERNAME_LABEL;
-            authdata._labelauthpassword = AppVar.AUTHVIEW.PASSWORD_LABEL;
-            authdata._labelauthsubmit = AppVar.AUTHVIEW.SUBMIT_LABEL;
-            AuthView.init(authdata, $('#_container'));
-     //   } else {
-            //append mapView to container
-      //  }
+        // if (!username) {
+        var authdata = {};
+        authdata._labelauthheader = AppVar.AUTHVIEW.HEADER_LABEL;
+        authdata._labelauthusername = AppVar.AUTHVIEW.USERNAME_LABEL;
+        authdata._labelauthpassword = AppVar.AUTHVIEW.PASSWORD_LABEL;
+        authdata._labelauthsubmit = AppVar.AUTHVIEW.SUBMIT_LABEL;
+       // AuthView.init(authdata, $('#_container'));
+     //   //   } else {
+        //append mapView to container
+        //  }
         //   google.maps.event.addDomListener(window, 'load', function() {
         //      MapView.render();
         //  });
+
+
+
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {

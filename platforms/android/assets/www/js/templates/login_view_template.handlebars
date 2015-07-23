@@ -1,0 +1,30 @@
+<script type="text/x-handlebars-template" id="loginTmpl">
+<div class="container">
+    <div class="row">
+        <div class="col s12 m12 l12">
+            <div class="widget-item z-depth-1">
+                <b>{{_labelauthheader}}</b>
+                <div>
+                    <div class="row">
+                        <form class="col s12" onsubmit="return false">
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <i class="mdi-action-account-circle prefix"></i>
+                                    <input id="username" type="text" name="{{_labelauthusername}}" class="validate">
+                                    <label for="username">{{_labelauthusername}}</label>
+                                </div>
+                                <div class="input-field col s12">
+                                    <i class="mdi-action-https prefix"></i>
+                                    <input id="password" type="password" name="{{_labelauthpassword}}" class="validate">
+                                    <label for="password">{{_labelauthpassword}}</label>
+                                </div>
+                                <button class="btn waves-effect waves-light" data-function="login" type="submit">{{_labelauthsubmit}}<i class="mdi-action-lock-open right"></i></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</script>
