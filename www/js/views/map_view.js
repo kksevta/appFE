@@ -54,7 +54,10 @@ var MapView = (function() {
         var center = new google.maps.LatLng(UserLayer.currentLocation.latitude, UserLayer.currentLocation.longitude);
         var mapOptions = {
             zoom: 4,
-            center: center
+            center: center,
+            mapTypeId: google.maps.MapTypeId.SATELLITE,
+            heading: 90,
+            tilt: 45
         }
         map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
         UserLayer.watchID = navigator.geolocation.watchPosition(selfLocationChangeSuccess, selfLocationChangeError, geo_options);
