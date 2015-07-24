@@ -1,6 +1,6 @@
 var MapView = (function() {
     var map;
-    var user = "kitty";
+    var user = "pinty";
     var _wrapper = $('#map-canvas');
     var mapmodel = new MapModel();
     var geo_options = {

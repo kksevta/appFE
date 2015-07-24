@@ -3,6 +3,8 @@ var MapView = (function() {
     var user = "kitty";
     var _wrapper = $('#map-canvas');
     var mapmodel = new MapModel();
+    var directionsDisplay;
+    var directionsService;
     var geo_options = {
         enableHighAccuracy: true,
         maximumAge: 30000,
@@ -20,7 +22,7 @@ var MapView = (function() {
         marker: null,
         watchID: null,
         icon: kittymapicon,
-        username: user
+        username: user,
     };
     var friendLayerCollection = [];
     var render = function render() {
@@ -55,12 +57,13 @@ var MapView = (function() {
         var mapOptions = {
             zoom: 4,
             center: center,
-            mapTypeId: google.maps.MapTypeId.SATELLITE,
-            heading: 90,
-            tilt: 45
+              preserveViewport: true
+            //    mapTypeId: google.maps.MapTypeId.SATELLITE,
+            //  heading: 90,
+            // tilt: 45
         }
         map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
-        UserLayer.watchID = navigator.geolocation.watchPosition(selfLocationChangeSuccess, selfLocationChangeError, geo_options);
+        // UserLayer.watchID = navigator.geolocation.watchPosition(selfLocationChangeSuccess, selfLocationChangeError, geo_options);
         UserLayer.marker = MapGlobal.drawMarker(map, UserLayer.currentLocation, false).marker;
         setInterval(fetch, 5000);
     };
@@ -98,6 +101,7 @@ var MapView = (function() {
                 new MoveMarker(friendLayerCollection[i].marker, friendLayerCollection[i].previousLocation, friendLayerCollection[i].currentLocation);
                 var lastupdatedinfo = friendLayerCollection[i].lastupdated.hours + ":" + friendLayerCollection[i].lastupdated.minutes + ":" + friendLayerCollection[i].lastupdated.seconds;
                 var markerInfo = '<h1>' + friendLayerCollection[i].username + '</h1><br/><p>Last updated ' + lastupdatedinfo + ' ago';
+                MapGlobal.drawPath(UserLayer.currentLocation, friendLayerCollection[i].currentLocation, "DRIVING", map);
                 MapGlobal.setInfoWindowContent(friendLayerCollection[i].infowindow, markerInfo);
             }
         });

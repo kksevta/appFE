@@ -1,5 +1,34 @@
 var MapGlobal = (function() {
-    var drawPath = function drawPath(origin, destination) {};
+    var directionsService = new google.maps.DirectionsService();
+    var drawPath = function drawPath(_origin, _destination, _travelMode, map) {
+        var origintemp = new google.maps.LatLng(_origin.latitude, _origin.longitude);
+        var destinationtemp = new google.maps.LatLng(_destination.latitude, _destination.longitude);
+        var rendererOptions = {
+            preserveViewport: true
+        };
+        var directionsDisplay = new google.maps.DirectionsRenderer(rendererOptions);
+        directionsDisplay.setMap(map);
+        switch (_travelMode) {
+            case "driving":
+                _travelMode = google.maps.TravelMode.DRIVING;
+                break;
+            case "walking":
+                _travelMode = google.maps.TravelMode.DRIVING;
+                break;
+            default:
+                _travelMode = google.maps.TravelMode.DRIVING;
+        }
+        var request = {
+            origin: origintemp,
+            destination: destinationtemp,
+            travelMode: _travelMode
+        };
+        directionsService.route(request, function(response, status) {
+            if (status == google.maps.DirectionsStatus.OK) {
+                directionsDisplay.setDirections(response);
+            }
+        });
+    };
     var drawMarker = function drawMarker(map, location, showinfowindow) {
         var _infowindow;
         location.latitude = Number(location.latitude);
